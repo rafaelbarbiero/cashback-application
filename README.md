@@ -1,5 +1,6 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=albums-sales-cashback&metric=alert_status)](https://sonarcloud.io/dashboard?id=albums-sales-cashback) 
 [![Build Status](https://travis-ci.com/rafaelbarbiero/cashback-application.svg?branch=master)](https://travis-ci.com/rafaelbarbiero/cashback-application)
+[![codecov](https://codecov.io/gh/rafaelbarbiero/albums-sales-cashback/branch/master/graph/badge.svg)](https://codecov.io/gh/rafaelbarbiero/albums-sales-cashback)
 
 # Albums Sales Cashback
 
