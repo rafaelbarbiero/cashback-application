@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -17,6 +20,9 @@ import java.util.Optional;
 public class SaleRepositoryServiceImpl implements SaleRepositoryService {
 
     SaleRepository saleRepository;
+
+    @Autowired
+    MongoTemplate mongoTemplate;
 
     @Autowired
     public SaleRepositoryServiceImpl(SaleRepository saleRepository) {
@@ -36,7 +42,10 @@ public class SaleRepositoryServiceImpl implements SaleRepositoryService {
     @Override
     public List<Sale> findByDateRange(LocalDate start, LocalDate end, Integer page, Integer size){
         final Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Order.desc("saleDate")));
-        return saleRepository.findBySaleDateBetween(start, end, pageable);
+        Query query = new Query();
+        query.addCriteria(Criteria.where("saleDate").gte(start).lte(end));
+        query.with(pageable);
+        return mongoTemplate.find(query, Sale.class);
     }
 
     @Override
