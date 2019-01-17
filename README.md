@@ -25,7 +25,7 @@
     1. Navegar até o diretório raiz do projeto
     2. Executar o comando Maven para a construção da aplicação **mvn clean install**
     3. Navegar até o diretório **{PROJECT_DIR}/api/target/**
-    3. Executar o comando de inicialização **java -jar cashback-api-0.0.1-SNAPSHOT.jar**
+    3. Executar o comando de inicialização **java -jar api-0.0.1-SNAPSHOT.jar**
     5. É possível alterar os dados de conexão da base com os argumentos de programa **--mongo_ip=IP** e **--mongo_port=PORT**
     6. É possível alterar os dados de conexão da base de cache com o argumentos **--redis_host=IP**, **--redis_port=PORT**
     7. Por padrão, a aplicação iniciará conectando em uma máquina online na **Amazon AWS**
